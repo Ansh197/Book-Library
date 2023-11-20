@@ -1,0 +1,38 @@
+body{
+    background-color: #0A0B0D ;
+}
+
+.custom_form_container{
+    background-color: #1C2026;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 30px;
+    color: white;
+    width: 35rem;
+    padding: 30px 50px;
+    margin: auto;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2{
+    margin: auto;
+}
+
+.custom_btn {
+    margin: auto;
+    width: 7rem;
+    padding: 10px 0px;
+    margin-top: 10px;
+    background-color: #0A0B0D;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+}

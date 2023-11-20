@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="styles/bookNotes.css" rel="stylesheet">
+</head>
+<body>
+    <div class="bookDetails-Container">
+    <img src="https://covers.openlibrary.org/b/isbn/<%= details.image_code %>.jpg"/>
+    <div class="details">
+        <p class="bookTitle"><%= details.book_name %></p>
+        <p class="bookAuthor">by <%= details.book_author %></p>
+        <p class="bookRating">Rating : <%= details.book_rating %> out of 5</p>
+        <p class="bookDescription">Summary : <%= details.book_description %></p>
+    </div>
+    </div>
+
+    <!-- <div class="btnContainer">
+        <a href=""><button>Edit</button></a>
+        <a href=""><button>Delete</button></a>
+    </div> -->
+
+    <div class="notesHeading">Book Notes :</div>
+    <ul class="notes">
+        <% for(var i=0;i<notes.length;++i) {%>
+            <li><input style="display: none;" type="text" name="bookId" value="<%= notes[i].id %>" class="form-control" >
+                <div class="noteDescription<%= notes[i].id %>"><%= notes[i].note_description %></div><button class="pencil" onclick="handleEdit('<%= notes[i].id %>')"><img src="/images/edit.png"></button> 
+                <input name="noteEdit<%= notes[i].id %>" value="<%= notes[i].note_description %>" class="noteEdit hidden"></li>
+            <% } %>
+        </ul>
+
+    <form action="/createNote" method="post">
+        <div class="mb-3">
+            <input style="display: none;" type="text" name="bookId" value="<%= id %>" class="form-control" >
+            <input type="text" name="noteBody" class="createNote" placeholder="Start typing / paste anything here">
+        </div>
+        <button type="submit" class="addBtn"><img src="/images/addIcon2.png"></button>
+    </form>
+
+    <script>
+        function handleEdit(id)
+        {
+            console.log(id);
+            document.querySelector(`input[name='noteEdit${id}']`).classList.remove('hidden');
+            document.getElementsByClassName(`noteDescription${id}`).classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
